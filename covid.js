@@ -26,7 +26,7 @@ botRem.on('message', message => {
 
                         let arr_date = [];
 
-                        let arr_confrimed =[];
+                        let arr_confrimed = [];
                         let arr_recovered = [];
                         let arr_hospitalized = [];
                         let arr_deaths = [];
@@ -35,7 +35,7 @@ botRem.on('message', message => {
                         let arr_newRecovered = [];
                         let arr_newHospitalized = [];
                         let arr_newDeaths = [];
-                    
+
                         //date
                         for (let x = 0; x <= 9; x++) {
                             y = data_graph[x].Date.toString();
@@ -77,10 +77,10 @@ botRem.on('message', message => {
                             y = data_graph[x].NewDeaths
                             arr_newDeaths.push(y);
                         }
-                        
+
                         var arr_date_string = "'" + arr_date.join("','") + "'";
                         console.log(arr_date_string);
-                        
+
                         let url = `https://quickchart.io/chart?width=500&height=300&c={type:'bar',data:{labels:[${arr_date_string}],datasets:[{label:'ติดเชื้อเพิ่ม',data:[${arr_newConfirmed}]}]}}`
                         data = JSON.parse(data);
                         const exampleEmbed = new Discord.MessageEmbed()
@@ -99,7 +99,7 @@ botRem.on('message', message => {
                                 { name: ':x: อัตราการเสียชีวิต ', value: `${((data.Deaths / data.Confirmed) * 100).toFixed(2)} %`, inline: true },
                                 { name: ':white_check_mark: อัตราการรอดชีวิต ', value: `${((data.Recovered / data.Confirmed) * 100).toFixed(2)} %`, inline: true },
                                 { name: '\u200B', value: '\u200B' },
-        
+
                             )
                             .addFields(
                                 { name: 'จำนวนการพบผู้ป่วยใหม่ (ระยะเวลา 10 วัน)', value: '\u200B' },
@@ -107,19 +107,13 @@ botRem.on('message', message => {
                             .setImage(url)
                             .setTimestamp()
                             .setFooter(`ข้อมูลโดย กรมควบคุมโรค บอทโดย aommie`);
-        
                         message.reply(exampleEmbed);
-
                     })
 
                 }).on("error", (err) => {
                     console.log(err);
 
                 })
-
-                
-
-
             });
 
         }).on("error", (err) => {
@@ -127,22 +121,6 @@ botRem.on('message', message => {
         });
 
     }
-    if (message.content === '-stat') {
-        https.get('https://covid19.th-stat.com/api/open/timeline', (response) => {
-            let data = "";
-            response.on('data', (s) => {
-                data += s;
-            })
-            response.on('end', () => {
-                data = JSON.parse(data)
-                data = data.Data.slice(-5, -1)
-                console.log(data);
-            })
 
-        }).on("error", (err) => {
-            console.log(err);
-
-        })
-    }
 })
-botRem.login('NzEwNzA5OTU5MDg3NzUxMjcw.Xr4tTQ.q1bEmbDuy3UhMkaDoBKPT0LBbIw');
+botRem.login('NzEwNzA5OTU5MDg3NzUxMjcw.Xr5TlA.iRcSpoS5GQmEOvBBsma50L_O8Vc');
