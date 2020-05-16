@@ -1,6 +1,5 @@
 var fs = require('fs')
 var token = fs.readFileSync('token.txt', 'utf8');
-console.log(token);
 
 if(token!==""){
     console.log('Get token success');
