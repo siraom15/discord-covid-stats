@@ -1,6 +1,8 @@
 var fs = require('fs')
 var token = fs.readFileSync('token.txt', 'utf8');
-if(token!=""){
+console.log(token);
+
+if(token!==""){
     console.log('Get token success');
 
     var update = fs.readFileSync('template.js', 'utf8');
@@ -11,7 +13,7 @@ if(token!=""){
     });
 }
 else{
-    console.log("Set your bot token before");
+    console.log('\x1b[36m%s\x1b[0m', 'Set bot token first');
     
 }
 
