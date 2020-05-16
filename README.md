@@ -5,7 +5,7 @@
 ## ขั้นตอนการลง
 * clone/download repository นี้
 * แตกไฟล์
-* Run " $ npm install " ใน command line 
+* Run " $ npm install " uใน command line 
 * ตั้งค่า Token bot discord ในไฟล์ token.txt
 
 ## วิธีใช้งาน
