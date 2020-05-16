@@ -122,9 +122,6 @@ client.on('message', message => {
 
                                         }
                                     ],
-                                    image: {
-                                        // url: 'https://i.imgur.com/wSTFkRM.png',
-                                    },
                                     timestamp: new Date(),
                                     footer: {
                                         text: 'Source code : https://github.com/siraom15/discord-covid-stats',
@@ -153,38 +150,6 @@ client.on('message', message => {
                     });
             })
     }
-    if (message.content === '-coinflip') {
-        function getRandomInt(max) {
-            return Math.floor(Math.random() * Math.floor(max));
-        }
-        let result = getRandomInt(2);
-        const exampleEmbed = new Discord.MessageEmbed()
-            .setColor('#0099ff')
-            .setTitle('สุ่มหัวก้อย')
-            // .setURL('https://discord.js.org/')
-            // .setAuthor('Some name', 'https://i.imgur.com/wSTFkRM.png', 'https://discord.js.org')
-            // .setDescription('Some description here')
-            // .setThumbnail('https://i.imgur.com/wSTFkRM.png')
-            // .addFields(
-            //     { name: 'Regular field title', value: 'Some value here' },
-            //     { name: '\u200B', value: '\u200B' },
-            //     { name: 'Inline field title', value: 'Some value here', inline: true },
-            //     { name: 'Inline field title', value: 'Some value here', inline: true },
-            // )
-            .setImage('https://i.pinimg.com/originals/d7/49/06/d74906d39a1964e7d07555e7601b06ad.gif')
-            .setTimestamp()
-
-        if (result == 1) {
-            exampleEmbed.addField('ผลลัพธ์', 'หัว', true)
-
-        } else {
-            exampleEmbed.addField('ผลลัพธ์', 'ก้อย', true)
-
-        }
-        message.reply(exampleEmbed);
-
-    }
-
 });
 
 client.login('token');

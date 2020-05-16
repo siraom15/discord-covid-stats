@@ -4,7 +4,6 @@ token = token.trim();
 
 if (token !== "") {
     console.log('Get token success');
-
     var update = fs.readFileSync('template.js', 'utf8');
     update = update.replace('token', token);
     fs.writeFile('temp.js', update, (err) => {
