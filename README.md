@@ -9,7 +9,7 @@
 * ตั้งค่า Token bot discord ในไฟล์ token.txt
 
 ## วิธีใช้งาน
-### Run file run.bat
+### Run file runbot.bat
 
 
 ## หรือต้องการเชิญ Bot เข้า Discord 
