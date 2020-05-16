@@ -13,4 +13,4 @@
 
 
 ## หรือต้องการเชิญ Bot เข้า Discord 
-> Link(https://discord.com/oauth2/authorize?client_id=710709959087751270&scope=bot&permissions=8)
+> [Link](https://discord.com/oauth2/authorize?client_id=710709959087751270&scope=bot&permissions=8)
