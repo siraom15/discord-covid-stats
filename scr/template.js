@@ -127,8 +127,8 @@ client.on('message', message => {
                                     },
                                     timestamp: new Date(),
                                     footer: {
-                                        text: 'ข้อมูล : กรมควบคุมโรค',
-                                        // icon_url: 'https://i.imgur.com/wSTFkRM.png',
+                                        text: 'Source code : https://github.com/siraom15/discord-covid-stats',
+                                        icon_url: 'https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg',
                                     },
                                 };
                                 e = result.body.Province;
