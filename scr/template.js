@@ -125,7 +125,6 @@ client.on('message', message => {
                                         text: `Source code: 
 github.com/siraom15/discord-covid-stats`,
                                         icon_url: 'https://icons-for-free.com/iconfiles/png/512/part+1+github-1320568339880199515.png'
-
                                     },
                                 };
                                 e = result.body.Province;
