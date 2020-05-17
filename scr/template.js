@@ -78,7 +78,7 @@ client.on('message', message => {
                         var arr_date_string = "'" + arr_date.join("','") + "'";
                         var final_date = arr_date_string.split('/2020').join('');
 
-                        let url = `https://quickchart.io/chart?width=500&height=300&c={type:'bar',data:{labels:[${final_date}],datasets:[{label:'ติดเชื้อเพิ่ม',data:[${arr_newConfirmed}]}]}}`
+                        let graph_img_url = `https://quickchart.io/chart?width=500&height=300&c={type:'bar',data:{labels:[${final_date}],datasets:[{label:'ติดเชื้อเพิ่ม',data:[${arr_newConfirmed}]}]}}`
                         data = result.body
                         const exampleEmbed = new Discord.MessageEmbed()
                             .setColor('#ae0562')
@@ -104,7 +104,7 @@ client.on('message', message => {
                             .addFields(
                                 { name: 'จำนวนการพบผู้ป่วยใหม่ (ระยะเวลา 30 วัน)', value: '\u200B' },
                             )
-                            .setImage(url)
+                            .setImage(graph_img_url)
                             .setTimestamp()
                             .setFooter(`ข้อมูล : กรมควบคุมโรค`);
                         message.reply(exampleEmbed);
@@ -119,13 +119,13 @@ client.on('message', message => {
                                         {
                                             name: '\u200b',
                                             value: '5 จังหวัดที่ติดเชื้อมากที่สุด',
-
                                         }
                                     ],
-                                    timestamp: new Date(),
                                     footer: {
-                                        text: 'Source code : https://github.com/siraom15/discord-covid-stats',
-                                        icon_url: 'https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg',
+                                        text: `Source code: 
+github.com/siraom15/discord-covid-stats`,
+                                        icon_url: 'https://icons-for-free.com/iconfiles/png/512/part+1+github-1320568339880199515.png'
+
                                     },
                                 };
                                 e = result.body.Province;
