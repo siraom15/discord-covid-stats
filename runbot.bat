@@ -1,3 +1,3 @@
 cd scr
 
-node temp.js
+node app.js

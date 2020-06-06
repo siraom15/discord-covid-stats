@@ -6,11 +6,11 @@
 * clone/download repository นี้
 * แตกไฟล์
 * Run " $ npm install " ใน command line 
-* ตั้งค่า Token bot discord ในไฟล์ token.txt
+* ตั้งค่า Token bot discord ในไฟล์ config.json
 
 ## วิธีใช้งาน
 ### Run file runbot.bat
-
+### cd scr node app.js
 
 ## หรือต้องการเชิญ Bot เข้า Discord 
 > [Link](https://discord.com/oauth2/authorize?client_id=710709959087751270&scope=bot&permissions=8)
