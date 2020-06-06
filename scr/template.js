@@ -2,6 +2,7 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 const unirest = require('unirest');
 const moment = require('moment');
+const { token } = require('../config.json');
 moment.locale("th");
 client.on('ready', () => {
     console.log('Bot Running !');
@@ -151,4 +152,4 @@ github.com/siraom15/discord-covid-stats`,
     }
 });
 
-client.login('token');
+client.login(token);
