@@ -1,3 +1,3 @@
-cd scr
+cd src
 
 node app.js
