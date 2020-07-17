@@ -1,3 +1,3 @@
 cd src
 
-node app.js
+pm2 start covid.js --watch
