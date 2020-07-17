@@ -1,4 +1,4 @@
-# Bot Discord ( Covid Stats)
+# Bot Discord ( Covid Stats ) 
 ## วิธีเปิดใช้งาน
 ### สิ่งที่ต้องมี 
 
