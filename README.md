@@ -14,7 +14,7 @@
 ### วิธีใช้งาน
 #### Run file runbot.bat
 > หรือ
-#### $ cd src node covid.js
+#### $ npm start
 
 ### หรือต้องการเชิญ Bot เข้า Discord 
 > [Link](https://discord.com/oauth2/authorize?client_id=710709959087751270&scope=bot&permissions=8)
