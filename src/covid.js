@@ -28,7 +28,7 @@ client.on('message', message => {
                         let arr_recovered = [];
                         let arr_hospitalized = [];
                         let arr_deaths = [];
-
+                        //test pull
                         let arr_newConfirmed = [];
                         let arr_newRecovered = [];
                         let arr_newHospitalized = [];
