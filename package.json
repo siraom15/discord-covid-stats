@@ -7,7 +7,7 @@
     "test": "test"
   },
   "dependencies": {
-    "chart.js": "^2.9.3",
+    "chart.js": "^2.9.4",
     "discord.js": "^12.2.0",
     "moment": "^2.25.3",
     "nodemon": "^2.0.4",
