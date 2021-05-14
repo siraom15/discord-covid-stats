@@ -20,69 +20,23 @@ client.on('message', message => {
 
                         try {
 
-                            data_graph = result2.body.Data
-
+                            let data_graph = result2.body.Data
+                            let data = result.body
                             data_graph = data_graph.slice(-30, data_graph.length)
 
                             let arr_date = [];
+                            for (let x = 0; x <= 29; x++) {
+                                arr_date.push(data_graph[x].Date.toString());
+                            }
 
-                            let arr_confrimed = [];
-                            let arr_recovered = [];
-                            let arr_hospitalized = [];
-                            let arr_deaths = [];
-                            //test pull
                             let arr_newConfirmed = [];
-                            let arr_newRecovered = [];
-                            let arr_newHospitalized = [];
-                            let arr_newDeaths = [];
-
-                            //date
                             for (let x = 0; x <= 29; x++) {
-                                y = data_graph[x].Date.toString();
-                                arr_date.push(y);
+                                arr_newConfirmed.push(data_graph[x].NewConfirmed);
                             }
-
-                            // old data
-                            for (let x = 0; x <= 29; x++) {
-                                y = data_graph[x].Confirmed
-                                arr_confrimed.push(y);
-                            }
-                            for (let x = 0; x <= 29; x++) {
-                                y = data_graph[x].Recovered
-                                arr_recovered.push(y);
-                            }
-                            for (let x = 0; x <= 29; x++) {
-                                y = data_graph[x].Hospitalized
-                                arr_hospitalized.push(y);
-                            }
-                            for (let x = 0; x <= 29; x++) {
-                                y = data_graph[x].Deaths
-                                arr_deaths.push(y);
-                            }
-
-                            //new
-                            for (let x = 0; x <= 29; x++) {
-                                y = data_graph[x].NewConfirmed
-                                arr_newConfirmed.push(y);
-                            }
-                            for (let x = 0; x <= 29; x++) {
-                                y = data_graph[x].NewRecovered
-                                arr_newRecovered.push(y);
-                            }
-                            for (let x = 0; x <= 29; x++) {
-                                y = data_graph[x].NewHospitalized
-                                arr_newHospitalized.push(y);
-                            }
-                            for (let x = 0; x <= 29; x++) {
-                                y = data_graph[x].NewDeaths
-                                arr_newDeaths.push(y);
-                            }
-
-                            var arr_date_string = "'" + arr_date.join("','") + "'";
-                            var final_date = arr_date_string.split('/2020').join('');
-
+                            let arr_date_string = "'" + arr_date.join("','") + "'";
+                            let final_date = arr_date_string.split('/2020').join('');
                             let graph_img_url = `https://quickchart.io/chart?width=500&height=300&c={type:'bar',data:{labels:[${final_date}],datasets:[{label:'ติดเชื้อเพิ่ม',data:[${arr_newConfirmed}]}]}}`
-                            data = result.body
+                           
                             const exampleEmbed = new Discord.MessageEmbed()
                                 .setColor('#ae0562')
                                 .setTitle('สถานการณ์ Covid-19 ')
@@ -100,7 +54,7 @@ client.on('message', message => {
                                     { name: ':muscle: รักษาหาย', value: `${data.Recovered}`, inline: true },
                                     { name: ':skull: เสียชีวิต', value: `${data.Deaths}`, inline: true },
                                     { name: ':x: อัตราการเสียชีวิต ', value: `${((data.Deaths / data.Confirmed) * 100).toFixed(2)} %`, inline: true },
-                                    { name: ':white_check_mark: อัตราการรอดชีวิต ', value: `${((data.Recovered / data.Confirmed) * 100).toFixed(2)} %`, inline: true },
+                                    { name: ':white_check_mark: อัตราการรักษาหาย ', value: `${((data.Recovered / data.Confirmed) * 100).toFixed(2)} %`, inline: true },
                                     { name: '\u200B', value: '\u200B' },
 
                                 )
@@ -111,7 +65,6 @@ client.on('message', message => {
                                 .setTimestamp()
                                 .setFooter(`ข้อมูล : กรมควบคุมโรค`);
                             message.reply(exampleEmbed);
-                            //
                             unirest.get('https://covid19.th-stat.com/api/open/cases/sum')
                                 .header("Accept", "application/json")
                                 .end((result) => {
@@ -125,33 +78,34 @@ client.on('message', message => {
                                             }
                                         ],
                                         footer: {
-                                            text: `Source code: 
-github.com/siraom15/discord-covid-stats`,
+                                            text: `Source code: github.com/siraom15/discord-covid-stats`,
                                             icon_url: 'https://icons-for-free.com/iconfiles/png/512/part+1+github-1320568339880199515.png'
                                         },
                                     };
-                                    e = result.body.Province;
-                                    let i = 1;
-                                    for (var key in e) {
-                                        if (e.hasOwnProperty(key) & i <= 5) {
-                                            i++;
-                                            em.fields.push({ name: key, value: e[key] + ' คน' })
+                                    try{
+                                        let e = result.body.Province;
+                                        let i = 1;
+                                        for (var key in e) {
+                                            if (e.hasOwnProperty(key) & i <= 5) {
+                                                i++;
+                                                em.fields.push({ name: key, value: e[key] + ' คน' })
+                                            }
                                         }
-                                    }
-                                    f = result.body.Gender;
-                                    em.fields.push({ name: '\u200b', value: 'เพศ' })
-                                    for (var key in f) {
-                                        if (f.hasOwnProperty(key)) {
-                                            em.fields.push({ name: key, value: f[key] + ' คน', inline: true })
+                                        f = result.body.Gender;
+                                        em.fields.push({ name: '\u200b', value: 'เพศ' })
+                                        for (var key in f) {
+                                            if (f.hasOwnProperty(key)) {
+                                                em.fields.push({ name: key, value: f[key] + ' คน', inline: true })
+                                            }
                                         }
+                                        message.reply({ embed: em });
+                                    }catch(err){
+                                        console.warn(err);
                                     }
-
-
-                                    message.reply({ embed: em });
+                                    
                                 })
-
                         } catch (e) {
-                            console.error(e);
+                            console.warn(e);
                         }
                     });
             })
