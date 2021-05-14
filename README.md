@@ -2,7 +2,7 @@
 
 Bot to check covid stats in Thailand
 
-![Img](https://github.com/siraom15/discord-covid-stats/blob/main/img/bot.png?raw=true)
+![Img](https://github.com/siraom15/discord-covid-stats/blob/master/img/bot.png?raw=true)
 
 ## Requirement
 * NodeJS version 12 or early
