@@ -1,21 +1,36 @@
-# Bot Discord ( Covid Stats ) 
-## วิธีเปิดใช้งาน
-### สิ่งที่ต้องมี 
+# Bot Discord ( Covid Stats )
 
-* NodeJS version > 12
+Bot to check covid stats in Thailand
+
+![Img](https://github.com/siraom15/discord-covid-stats/blob/main/img/bot.png?raw=true)
+
+## Requirement
+* NodeJS version 12 or early
 * Discord bot token [Link](https://discord.com/developers/applications)
+## Installation
 
-### ขั้นตอนการลง
+Clone this repository
 
-* clone/download repository 
-* $ npm install 
-* ตั้งค่า Bot token ในไฟล์ config.json 
+Set up discord token in config.json
 
-### วิธีใช้งาน
-#### Run file runbot.bat
-> หรือ
-#### $ npm start
+Use the package manager [npm](https://www.npmjs.com/) to install.
 
-### หรือต้องการเชิญ Bot เข้า Discord 
-> [Link](https://discord.com/oauth2/authorize?client_id=710709959087751270&scope=bot&permissions=8)
+```bash
+npm install
+```
+## Usage
 
+```bash
+npm start
+```
+
+## Contributing
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+Please make sure to update tests as appropriate.
+
+## Invite bot
+[Link to invite](https://discord.com/oauth2/authorize?client_id=710709959087751270&scope=bot&permissions=8)
+
+## License
+[MIT](https://choosealicense.com/licenses/mit/)
