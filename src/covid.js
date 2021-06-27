@@ -11,16 +11,17 @@ client.on('ready', () => {
 });
 client.on('message', message => {
     if (message.content === '-covid') {
+        console.log("GET CMD");
         unirest.get('https://covid19.th-stat.com/json/covid19v2/getTodayCases.json')
             .header("Accept", "application/json")
             .end((result) => {
                 unirest.get('https://covid19.th-stat.com/json/covid19v2/getTimeline.json')
                     .header("Accept", "application/json")
                     .end((result2) => {
-
                         try {
-
+                            
                             let data_graph = result2.body.Data
+                            // console.log(data_graph);
                             let data = result.body
                             data_graph = data_graph.slice(-30, data_graph.length)
 
