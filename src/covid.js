@@ -98,7 +98,7 @@ client.on('message', message => {
                                                 em.fields.push({ name: key, value: f[key] + ' คน', inline: true })
                                             }
                                         }
-                                        message.reply({ embed: em });
+                                        // message.reply({ embed: em });
                                     } catch (err) {
                                         console.warn(err);
                                     }
