@@ -11,10 +11,10 @@ client.on('ready', () => {
 });
 client.on('message', message => {
     if (message.content === '-covid') {
-        unirest.get('https://covid19.th-stat.com/api/open/today')
+        unirest.get('https://covid19.th-stat.com/json/covid19v2/getTodayCases.json')
             .header("Accept", "application/json")
             .end((result) => {
-                unirest.get('https://covid19.th-stat.com/api/open/timeline')
+                unirest.get('https://covid19.th-stat.com/json/covid19v2/getTimeline.json')
                     .header("Accept", "application/json")
                     .end((result2) => {
 
@@ -36,7 +36,7 @@ client.on('message', message => {
                             let arr_date_string = "'" + arr_date.join("','") + "'";
                             let final_date = arr_date_string.split('/2020').join('');
                             let graph_img_url = `https://quickchart.io/chart?width=500&height=300&c={type:'bar',data:{labels:[${final_date}],datasets:[{label:'ติดเชื้อเพิ่ม',data:[${arr_newConfirmed}]}]}}`
-                           
+
                             const exampleEmbed = new Discord.MessageEmbed()
                                 .setColor('#ae0562')
                                 .setTitle('สถานการณ์ Covid-19 ')
@@ -65,7 +65,7 @@ client.on('message', message => {
                                 .setTimestamp()
                                 .setFooter(`ข้อมูล : กรมควบคุมโรค`);
                             message.reply(exampleEmbed);
-                            unirest.get('https://covid19.th-stat.com/api/open/cases/sum')
+                            unirest.get('https://covid19.th-stat.com/json/covid19v2/getSumCases.json')
                                 .header("Accept", "application/json")
                                 .end((result) => {
                                     let em = {
@@ -82,7 +82,7 @@ client.on('message', message => {
                                             icon_url: 'https://icons-for-free.com/iconfiles/png/512/part+1+github-1320568339880199515.png'
                                         },
                                     };
-                                    try{
+                                    try {
                                         let e = result.body.Province;
                                         let i = 1;
                                         for (var key in e) {
@@ -99,10 +99,10 @@ client.on('message', message => {
                                             }
                                         }
                                         message.reply({ embed: em });
-                                    }catch(err){
+                                    } catch (err) {
                                         console.warn(err);
                                     }
-                                    
+
                                 })
                         } catch (e) {
                             console.warn(e);
